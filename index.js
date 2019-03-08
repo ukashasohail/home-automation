@@ -14,15 +14,15 @@ app.get('/lighton',(req,res)=>{
     .then(()=>{
         return gpiop.write(7, true);
     });
-    res.redirect('/');
+    res.send('light on');
 });
 
-app.get('/lightff',(req,res)=>{
+app.get('/lightoff',(req,res)=>{
     gpiop.setup(7,gpio.DIR_OUT)
     .then(()=>{
         return gpiop.write(7, false);
     });
-    res.redirect('/');
+    res.send('light on');
 });
 
 app.listen(3000, ()=>{
