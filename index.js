@@ -14,7 +14,8 @@ app.get('/lighton',(req,res)=>{
     .then(()=>{
         return gpiop.write(7, true);
     });
-    res.send('light on');
+    res.sendFile(path.join(__dirname+'/lighton.html'));
+
 });
 
 app.get('/lightoff',(req,res)=>{
@@ -22,7 +23,7 @@ app.get('/lightoff',(req,res)=>{
     .then(()=>{
         return gpiop.write(7, false);
     });
-    res.send('light on');
+    res.sendFile(path.join(__dirname+'/lightoff.html'));
 });
 
 app.listen(3000, ()=>{
